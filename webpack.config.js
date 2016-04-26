@@ -1,20 +1,21 @@
 var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
-    filename: 'index.js'
+    filename: 'index.js',
   },
   module: {
     preLoaders: [
       {
         test: /\.js$/,
         loader: 'eslint-loader',
-        exclude: /node_modules|dist/
-      }
+        exclude: /node_modules|dist/,
+      },
     ],
     loaders: [
       {
@@ -22,20 +23,23 @@ module.exports = {
         exclude: /(node_modules|dist)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
+          presets: ['react', 'es2015'],
+        },
+      },
+    ],
   },
   plugins: [
     new FlowStatusWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'JP & R',
-      template: 'index.ejs'
-    })
+      template: 'index.ejs',
+    }),
+    new CopyWebpackPlugin([
+      { from: 'CNAME'},
+    ]),
   ],
   devServer: { 'hide-modules': true },
   eslint: {
-    configFile: '.eslintrc.yml'
-  }
+    configFile: '.eslintrc.yml',
+  },
 };
