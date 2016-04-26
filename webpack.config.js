@@ -1,4 +1,5 @@
 var FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -27,7 +28,10 @@ module.exports = {
     ]
   },
   plugins: [
-    new FlowStatusWebpackPlugin()
+    new FlowStatusWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'JP & R'
+    })
   ],
   devServer: { 'hide-modules': true },
   eslint: {
