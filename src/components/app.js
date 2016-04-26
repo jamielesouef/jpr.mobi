@@ -1,6 +1,5 @@
 // @flow
 import React from 'react';
-import { connect } from 'react-redux';
 
 const App = () => (
   <div>
@@ -11,7 +10,7 @@ const App = () => (
 
 App.propTypes = {
   dispatch: React.PropTypes.func,
-  state: React.PropTypes.object
+  state: React.PropTypes.object,
 };
 
-export default connect(state => state)(App);
+export default App;

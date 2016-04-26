@@ -3,30 +3,19 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import RedBox from 'redbox-react';
+import App from './components/app';
 
-import configureStore from './store/configureStore';
-
-const store = configureStore();
 const reactRoot = document.getElementById('react-root');
 
 let render = () => {
-  const App = require('./components/app.js').default;
-
-  ReactDOM.render(
-    <Provider store={store}>
-      <App/>
-    </Provider>,
-    reactRoot
-  );
+  ReactDOM.render(<App />, reactRoot);
 };
 
 if (module.hot) {
   const renderApp = render;
   const renderError = error => {
-    const RedBox = require('redbox-react');
-
-    ReactDOM.render(<RedBox error={error}/>, reactRoot);
+    ReactDOM.render(<RedBox error={error} />, reactRoot);
   };
 
   render = () => {
