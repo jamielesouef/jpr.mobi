@@ -30,7 +30,8 @@ module.exports = {
   plugins: [
     new FlowStatusWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'JP & R'
+      title: 'JP & R',
+      template: 'index.ejs'
     })
   ],
   devServer: { 'hide-modules': true },
