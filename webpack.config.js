@@ -22,9 +22,6 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules|dist)/,
         loader: 'babel',
-        query: {
-          presets: ['react', 'es2015'],
-        },
       },
     ],
   },
@@ -38,7 +35,7 @@ module.exports = {
       { from: 'CNAME'},
     ]),
   ],
-  devServer: { 'hide-modules': true },
+  devServer: { 'hide-modules': true,  outputPath: __dirname + '/dist',},
   eslint: {
     configFile: '.eslintrc.yml',
   },

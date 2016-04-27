@@ -1,16 +1,21 @@
 // @flow
-import React from 'react';
 
-const App = () => (
-  <div>
-    <h1>Example app</h1>
-    <p>It works!</p>
-  </div>
-);
+import React, { Component } from 'react';
 
-App.propTypes = {
-  dispatch: React.PropTypes.func,
-  state: React.PropTypes.object,
-};
+class App extends Component {
+
+  static propTypes = {};
+  static defaultProps = {};
+
+  render() {
+    return (
+      <div>
+        <h1>Example app</h1>
+        <p>It works!</p>
+      </div>
+    );
+  }
+}
 
 export default App;
+
